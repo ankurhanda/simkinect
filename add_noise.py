@@ -116,9 +116,10 @@ if __name__ == "__main__":
 
     count = 181
 
-    scale_factor = 100 
-    focal_length = 480.0
-    baseline_m = 0.075
+    # various variables to handle the noise modelling
+    scale_factor  = 100     # converting depth from m to cm 
+    focal_length  = 480.0   # focal length of the camera used 
+    baseline_m    = 0.075   # baseline in m 
     invalid_disp_ = 99999999.9
 
     while True:
@@ -133,7 +134,6 @@ if __name__ == "__main__":
         depth_interp = add_gaussian_shifts(depth)
 
         disp_= focal_length * baseline_m / (depth_interp + 1e-10)
-
         depth_f = np.round(disp_ * 8.0)/8.0
 
         out_disp = filterDisp(depth_f, dot_pattern_, invalid_disp_)
@@ -141,7 +141,6 @@ if __name__ == "__main__":
         depth = focal_length * baseline_m / out_disp
         depth[out_disp == invalid_disp_] = 0 
         
-
         # The depth here needs to converted to cms so scale factor is introduced 
         # though often this can be tuned from [100, 200] to get the desired banding / quantisation effects 
         noisy_depth = (35130/np.round((35130/np.round(depth*scale_factor)) + np.random.normal(size=(h, w))*(1.0/6.0) + 0.5))/scale_factor 
