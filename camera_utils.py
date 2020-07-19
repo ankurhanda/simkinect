@@ -201,7 +201,7 @@ if __name__ == "__main__":
 
     dot_pattern_ = cv2.imread("./data/kinect-pattern_3x3.png", 0)
 
-    count = 0
+    count = 181
 
     scale_factor = 100 
 
@@ -214,7 +214,9 @@ if __name__ == "__main__":
         # depth in meters 
         depth = depth_uint16.astype('float') / 5000.0
 
-        disp_= 480.0 * 0.075 / depth
+        depth_interp = add_gaussian_shifts(depth)
+
+        disp_= 480.0 * 0.075 / (depth_interp + 1e-10)
 
         depth_f = np.round(disp_ * 8.0)/8.0
 
@@ -222,19 +224,14 @@ if __name__ == "__main__":
 
         depth = 480.0 * 0.075 / out_disp
         depth[out_disp == 99999999.9] = 0 
+        
 
+        # The depth here needs to converted to cms so scale factor is introduced 
+        # though often this can be tuned from [100, 200] to get the desired banding / quantisation effects 
+        noisy_depth = (35130/np.round((35130/np.round(depth*scale_factor)) + np.random.normal(size=(h, w))*(1.0/6.0) + 0.5))/scale_factor 
 
-        noisy_depth = depth * 5000.0
+        noisy_depth = noisy_depth * 5000.0 
         noisy_depth = noisy_depth.astype('uint16')
-
-        # depth_interp = add_gaussian_shifts(depth)
-
-        # # The depth here needs to converted to cms so scale factor is introduced 
-        # # though often this can be tuned from [100, 200] to get the desired banding / quantisation effects 
-        # noisy_depth = (35130/np.round((35130/np.round(depth_interp*scale_factor)) + np.random.normal(size=(h, w))*(1.0/6.0) + 0.5))/scale_factor 
-
-        # noisy_depth = noisy_depth * 5000.0 
-        # noisy_depth = noisy_depth.astype('uint16')
 
         # Displaying side by side the orignal depth map and the noisy depth map with barron noise cvpr 2013 model
         cv2.namedWindow('Adding Kinect Noise', cv2.WINDOW_AUTOSIZE)
