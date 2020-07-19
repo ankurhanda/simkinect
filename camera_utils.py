@@ -204,6 +204,8 @@ if __name__ == "__main__":
     count = 181
 
     scale_factor = 100 
+    focal_length = 480.0
+    baseline_m = 0.075
 
     while True:
 
@@ -216,13 +218,13 @@ if __name__ == "__main__":
 
         depth_interp = add_gaussian_shifts(depth)
 
-        disp_= 480.0 * 0.075 / (depth_interp + 1e-10)
+        disp_= focal_length * baseline_m / (depth_interp + 1e-10)
 
         depth_f = np.round(disp_ * 8.0)/8.0
 
         out_disp = filterDisp(depth_f, dot_pattern_)
 
-        depth = 480.0 * 0.075 / out_disp
+        depth = focal_length * baseline / out_disp
         depth[out_disp == 99999999.9] = 0 
         
 
