@@ -109,9 +109,11 @@ def filterDisp(disp, dot_pattern_, invalid_disp_):
 
     return out_disp
 
+
+
 if __name__ == "__main__":
 
-
+    # reading the image directly in gray with 0 as input 
     dot_pattern_ = cv2.imread("./data/kinect-pattern_3x3.png", 0)
 
     count = 181
