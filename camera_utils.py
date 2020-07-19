@@ -123,6 +123,7 @@ if __name__ == "__main__":
     while True:
 
         depth_uint16 = cv2.imread("depth/{}.png".format(count), cv2.IMREAD_UNCHANGED)
+        h, w = depth_uint16.shape 
 
         # Our depth images were scaled by 5000 to store in png format so dividing to get 
         # depth in meters 
@@ -132,7 +133,7 @@ if __name__ == "__main__":
 
         # The depth here needs to converted to cms so scale factor is introduced 
         # though often this can be tuned from [100, 200] to get the desired banding / quantisation effects 
-        noisy_depth = (35130/np.round(35130/np.round(depth_interp*scale_factor) + np.random.normal(size=(480, 640))*(1.0/6.0) + 0.5))/scale_factor 
+        noisy_depth = (35130/np.round(35130/np.round(depth_interp*scale_factor) + np.random.normal(size=(h, w))*(1.0/6.0) + 0.5))/scale_factor 
         noisy_depth = noisy_depth * 5000.0 
         noisy_depth = noisy_depth.astype('uint16')
 
