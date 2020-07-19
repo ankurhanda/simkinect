@@ -224,7 +224,7 @@ if __name__ == "__main__":
 
         out_disp = filterDisp(depth_f, dot_pattern_)
 
-        depth = focal_length * baseline / out_disp
+        depth = focal_length * baseline_m / out_disp
         depth[out_disp == 99999999.9] = 0 
         
 
