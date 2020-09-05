@@ -10,10 +10,18 @@ If you use this code, please consider citing the following papers
 
 ```
 @inproceedings{handa2014benchmark,
-  title={A benchmark for RGB-D visual odometry, 3D reconstruction and SLAM},
-  author={Handa, Ankur and Whelan, Thomas and McDonald, John and Davison, Andrew J},
-  booktitle={2014 IEEE international conference on Robotics and automation (ICRA)},
-  year={2014},
-  organization={IEEE}
+  title   = {A benchmark for RGB-D visual odometry, 3D reconstruction and SLAM},
+  author  = {Handa, Ankur and Whelan, Thomas and McDonald, John and Davison, Andrew J},
+  journal = {ICRA},
+  year    = {2014},
 }
+
+@article{Barron2013A,
+  author  = {Jonathan T. Barron and Jitendra Malik},
+  title   = {Intrinsic Scene Properties from a Single RGB-D Image},
+  journal = {CVPR},
+  year    = {2013},
+}
+
 ```
+
