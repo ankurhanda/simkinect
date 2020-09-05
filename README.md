@@ -1,10 +1,12 @@
-# simkinect
+# SimKinect
 Simulating Kinect Noise: adding noise to clean depth-maps rendered with a graphics engine.
 
-# how to run 
+# How to run 
 
 `python add_noise.py` 
 
+
+# Citations
 
 If you use this code, please consider citing the following papers
 
