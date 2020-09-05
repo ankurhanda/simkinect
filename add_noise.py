@@ -124,7 +124,7 @@ if __name__ == "__main__":
     baseline_m    = 0.075   # baseline in m 
     invalid_disp_ = 99999999.9
 
-    while True:
+    while count < 190:
 
         depth_uint16 = cv2.imread("depth/{}.png".format(count), cv2.IMREAD_UNCHANGED)
         h, w = depth_uint16.shape 
@@ -162,4 +162,4 @@ if __name__ == "__main__":
             break
 
         print(count)
-        count = (count + 1)% 500
+        count = count + 1
