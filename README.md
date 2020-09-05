@@ -10,7 +10,7 @@ Simulating Kinect Noise: adding noise to clean depth-maps rendered with a graphi
 
 The left image is a sample depth image from a simulator and the right image is the depth image with noise added to it. 
 
-![Sample Result](./images_for_git/depth_noised_181.png)
+![Sample Result](./images_for_readme_git/depth_noised_181.png)
 
 # Citations
 
