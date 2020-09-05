@@ -9,7 +9,7 @@ Simulating Kinect Noise: adding noise to clean depth-maps rendered with a graphi
 If you use this code, please consider citing the following papers
 
 ```
-@inproceedings{handa2014benchmark,
+@article{handa2014benchmark,
   title   = {A benchmark for RGB-D visual odometry, 3D reconstruction and SLAM},
   author  = {Handa, Ankur and Whelan, Thomas and McDonald, John and Davison, Andrew J},
   journal = {ICRA},
@@ -21,6 +21,13 @@ If you use this code, please consider citing the following papers
   title   = {Intrinsic Scene Properties from a Single RGB-D Image},
   journal = {CVPR},
   year    = {2013},
+}
+
+@article{bohg2014robot,
+  title   = {Robot arm pose estimation through pixel-wise part classification},
+  author  = {Bohg, Jeannette and Romero, Javier and Herzog, Alexander and Schaal, Stefan},
+  journal = {ICRA},
+  year    = {2014},
 }
 
 ```
