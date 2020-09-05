@@ -161,5 +161,7 @@ if __name__ == "__main__":
             cv2.destroyAllWindows()
             break
 
+        depth2save = np.hstack((depth_uint16, noisy_depth))
+        cv2.imwrite('depth_noised_{}.png'.format(count), depth2save)
         print(count)
         count = count + 1

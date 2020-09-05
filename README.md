@@ -6,6 +6,9 @@ Simulating Kinect Noise: adding noise to clean depth-maps rendered with a graphi
 
 `python add_noise.py` 
 
+# Sample Results
+
+![Sample Result](./images_for_git/depth_noised_181.png)
 
 # Citations
 
